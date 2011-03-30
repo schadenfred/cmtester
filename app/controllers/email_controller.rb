@@ -1,8 +1,9 @@
 class EmailController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  require 'mail'
 
   def input
-    msg = TMail::Mail.parse params[:message]
+    msg = Mail.new params[:message]
 
     from = msg.from[0]
     from_user = User.create_or_find_by_email(from.email) # TODO: grab name from email
