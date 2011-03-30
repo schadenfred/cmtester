@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110330211548) do
+ActiveRecord::Schema.define(:version => 20110330222309) do
+
+  create_table "contents", :force => true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "by_user_id"
+    t.integer  "about_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contents_about_users", :force => true do |t|
+    t.integer  "content_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
