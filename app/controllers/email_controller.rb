@@ -17,6 +17,5 @@ class EmailController < ApplicationController
  #     msg.attachments.each {|att|
  #       content.attachments << Attachment.new(:filename => att.original_filename, :bits => att.body, :content_type => att.content_type)
  #     }
-    }
   end
 end
