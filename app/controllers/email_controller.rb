@@ -12,7 +12,7 @@ class EmailController < ApplicationController
     toandcc_users = toandcc.map{|address|
       User.find_or_create_by_email(address) # TODO: grab name
     }
-    content = Content.create(:by_user => from_user, :about_users => toandcc_users, :subject => msg.subject, :body => msg.body)
+    Content.create(:by_user => from_user, :about_users => toandcc_users, :subject => msg.subject, :body => msg.body)
     
  #     msg.attachments.each {|att|
  #       content.attachments << Attachment.new(:filename => att.original_filename, :bits => att.body, :content_type => att.content_type)
