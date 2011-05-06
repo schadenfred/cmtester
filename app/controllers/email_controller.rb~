@@ -5,7 +5,12 @@ class EmailController < ApplicationController
   def input
     message = Mail.new params[:message]
 
-
+    Rails.logger.add Logger::INFO, message.subject #print the subject to the logs
+    Rails.logger.add Logger::INFO, message.body.decoded #print the decoded body
+    Rails.logger.add Logger::INFO, message.from #print the from
+    Rails.logger.add Logger::INFO, message.to #print the to
+    Rails.logger.add Logger::INFO, message.body #print the body
+    Rails.logger.add Logger::INFO, message.cc #print the from
 
     from = message.from[0]
     from_user = User.find_or_create_by_email(from) # TODO: grab name from email
