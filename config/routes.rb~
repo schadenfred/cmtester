@@ -5,8 +5,6 @@ Cmtester::Application.routes.draw do  # The priority is based upon order of crea
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
-  resource :users
-
   match 'email/input' => 'email#input', :as => :email
 
 
